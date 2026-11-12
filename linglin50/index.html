@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="聆鈴五零：按下門鈴，先聽，再看。收錄台灣日常聲音的互動網站。">
+<title>聆鈴五零</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* 基本重設（原本由預覽平台提供） */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0}
+img,video{max-width:100%}
+/* Layout: four full-screen views (intro, street, door, watch) over a night alley. Deliberate single night theme. */
+:root{
+  --night:#0E1117; --night2:#171C26; --panel:rgba(18,22,30,.94); --fg:#EDE9E1; --muted:#A39F96; --line:rgba(237,233,225,.14);
+  --plate:#1D4F9F; --glow:#FFC66B; --glow-ink:#241706; --bell:#F1E8D6;
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --tile:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='36'%3E%3Crect width='64' height='36' fill='%232E2823'/%3E%3Cg stroke='%231E1A17' stroke-width='2'%3E%3Cpath d='M0 1H64M0 19H64M1 0V18M33 18V36'/%3E%3C/g%3E%3C/svg%3E");
+  --begonia:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cg fill='none' stroke='rgba(0,0,0,0.30)' stroke-width='1.1' transform='translate(0.8 0.9)'%3E%3Cellipse cx='16' cy='10.8' rx='2.8' ry='4.6'/%3E%3Cellipse cx='16' cy='21.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='10.8' cy='16' rx='4.6' ry='2.8'/%3E%3Cellipse cx='21.2' cy='16' rx='4.6' ry='2.8'/%3E%3Ccircle cx='16' cy='16' r='1.5'/%3E%3Cellipse cx='0' cy='-5.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='0' cy='5.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='-5.2' cy='0' rx='4.6' ry='2.8'/%3E%3Cellipse cx='5.2' cy='0' rx='4.6' ry='2.8'/%3E%3Ccircle cx='0' cy='0' r='1.5'/%3E%3Cellipse cx='32' cy='-5.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='32' cy='5.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='26.8' cy='0' rx='4.6' ry='2.8'/%3E%3Cellipse cx='37.2' cy='0' rx='4.6' ry='2.8'/%3E%3Ccircle cx='32' cy='0' r='1.5'/%3E%3Cellipse cx='0' cy='26.8' rx='2.8' ry='4.6'/%3E%3Cellipse cx='0' cy='37.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='-5.2' cy='32' rx='4.6' ry='2.8'/%3E%3Cellipse cx='5.2' cy='32' rx='4.6' ry='2.8'/%3E%3Ccircle cx='0' cy='32' r='1.5'/%3E%3Cellipse cx='32' cy='26.8' rx='2.8' ry='4.6'/%3E%3Cellipse cx='32' cy='37.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='26.8' cy='32' rx='4.6' ry='2.8'/%3E%3Cellipse cx='37.2' cy='32' rx='4.6' ry='2.8'/%3E%3Ccircle cx='32' cy='32' r='1.5'/%3E%3C/g%3E%3Cg fill='rgba(255,255,255,0.10)' stroke='rgba(255,255,255,0.55)' stroke-width='0.9'%3E%3Cellipse cx='16' cy='10.8' rx='2.8' ry='4.6'/%3E%3Cellipse cx='16' cy='21.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='10.8' cy='16' rx='4.6' ry='2.8'/%3E%3Cellipse cx='21.2' cy='16' rx='4.6' ry='2.8'/%3E%3Ccircle cx='16' cy='16' r='1.5'/%3E%3Cellipse cx='0' cy='-5.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='0' cy='5.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='-5.2' cy='0' rx='4.6' ry='2.8'/%3E%3Cellipse cx='5.2' cy='0' rx='4.6' ry='2.8'/%3E%3Ccircle cx='0' cy='0' r='1.5'/%3E%3Cellipse cx='32' cy='-5.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='32' cy='5.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='26.8' cy='0' rx='4.6' ry='2.8'/%3E%3Cellipse cx='37.2' cy='0' rx='4.6' ry='2.8'/%3E%3Ccircle cx='32' cy='0' r='1.5'/%3E%3Cellipse cx='0' cy='26.8' rx='2.8' ry='4.6'/%3E%3Cellipse cx='0' cy='37.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='-5.2' cy='32' rx='4.6' ry='2.8'/%3E%3Cellipse cx='5.2' cy='32' rx='4.6' ry='2.8'/%3E%3Ccircle cx='0' cy='32' r='1.5'/%3E%3Cellipse cx='32' cy='26.8' rx='2.8' ry='4.6'/%3E%3Cellipse cx='32' cy='37.2' rx='2.8' ry='4.6'/%3E%3Cellipse cx='26.8' cy='32' rx='4.6' ry='2.8'/%3E%3Cellipse cx='37.2' cy='32' rx='4.6' ry='2.8'/%3E%3Ccircle cx='32' cy='32' r='1.5'/%3E%3C/g%3E%3Cg fill='rgba(255,255,255,0.45)'%3E%3Ccircle cx='16' cy='0' r='0.9'/%3E%3Ccircle cx='0' cy='16' r='0.9'/%3E%3Ccircle cx='32' cy='16' r='0.9'/%3E%3Ccircle cx='16' cy='32' r='0.9'/%3E%3C/g%3E%3C/svg%3E");
+  color-scheme:dark;
+}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{background:var(--night);color:var(--fg);font-family:var(--body);font-size:14px;line-height:1.6;overflow:hidden}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+.view{position:fixed;inset:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.fade{transition:opacity .5s}
+.gone{opacity:0;pointer-events:none}
+
+/* ---------- intro ---------- */
+#intro{display:grid;place-items:center;background:radial-gradient(120% 80% at 50% 0%,#1F2735 0%,var(--night) 60%);overflow:auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+#intro::after{content:"";position:fixed;left:0;right:0;bottom:0;height:18vh;background-image:var(--tile);opacity:.55;mask-image:linear-gradient(transparent,#000);-webkit-mask-image:linear-gradient(transparent,#000);pointer-events:none}
+.intro-box{position:relative;z-index:1;max-width:620px;display:grid;gap:18px;justify-items:center;text-align:center;padding-block:32px 22vh}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--muted)}
+.intro-box h1{font-family:var(--display);font-weight:900;font-size:clamp(46px,10vw,92px);line-height:1;margin:0;letter-spacing:.1em}
+.tagline{font-size:clamp(16px,2.4vw,20px);margin:0}
+.preface{color:var(--muted);margin:0;max-width:34em;text-wrap:pretty}
+.preface b{color:var(--fg);font-weight:500}
+.bellplate{position:relative;width:78px;height:122px;border:0;border-radius:11px;cursor:pointer;padding:0;display:grid;place-items:center;background:linear-gradient(160deg,#EFEBE0,#D9D3C4);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset -2px -3px 0 rgba(0,0,0,.06),0 8px 18px rgba(0,0,0,.45)}
+.bellkey{width:40px;height:38px;box-sizing:border-box;background:linear-gradient(#FCFCF9,#ECEBE5);border:2px solid #F4F3EF;border-radius:3px;box-shadow:0 0 0 1px #CBC7BC,0 3px 0 #B9B4A8;display:grid;place-items:center;transition:transform .08s,box-shadow .08s}
+.bellplate:active .bellkey{transform:translateY(2px);box-shadow:0 0 0 1px #CBC7BC,0 1px 0 #B9B4A8}
+.note{width:23px;height:23px;border-radius:50%;background:#fff;border:1px solid #D3D1CA;display:grid;place-items:center}
+.note svg{width:15px;height:15px;display:block}
+.bellplate.ready .bellkey{animation:keyglow 2.4s ease-in-out infinite}
+@keyframes keyglow{50%{box-shadow:0 0 0 1px #CBC7BC,0 3px 0 #B9B4A8,0 0 16px 5px rgba(255,198,107,.7)}}
+.bellplate[aria-disabled="true"]{cursor:default}.bellplate[aria-disabled="true"] .bellkey{animation:none;opacity:.8}
+.bell-cap{font-size:13px;color:var(--muted);letter-spacing:.1em}
+
+/* ---------- street ---------- */
+#street{display:flex;flex-direction:column;background:linear-gradient(180deg,#0B0E14 0%,#161B26 70%,#0E1117 100%)}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:14px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));border-bottom:1px solid var(--line)}
+.topbar h2{font-family:var(--display);font-weight:900;font-size:22px;margin:0;letter-spacing:.08em}
+.topbar .sub{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{font:500 13px var(--body);color:var(--fg);background:var(--night2);border:1px solid var(--line);border-radius:99px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.btn.primary{background:var(--glow);color:var(--glow-ink);border-color:var(--glow)}
+.btn.file{position:relative;overflow:hidden}
+.btn.file input{position:absolute;inset:0;opacity:0;cursor:pointer}
+#msg{font-size:12px;color:var(--glow);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));min-height:0}
+#msg:not(:empty){padding-block:6px}
+.lane-wrap{flex:1;min-height:0;overflow-x:auto;overflow-y:hidden;position:relative;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='260'%3E%3Cg fill='%23202836'%3E%3Crect x='0' y='120' width='60' height='140'/%3E%3Crect x='64' y='60' width='48' height='200'/%3E%3Crect x='116' y='150' width='70' height='110'/%3E%3Crect x='190' y='90' width='54' height='170'/%3E%3Crect x='248' y='170' width='80' height='90'/%3E%3Crect x='332' y='40' width='40' height='220'/%3E%3Crect x='376' y='130' width='44' height='130'/%3E%3C/g%3E%3Cg fill='%23453A28'%3E%3Crect x='78' y='80' width='6' height='8'/%3E%3Crect x='200' y='110' width='6' height='8'/%3E%3Crect x='344' y='70' width='6' height='8'/%3E%3Crect x='130' y='170' width='6' height='8'/%3E%3C/g%3E%3C/svg%3E") repeat-x left bottom 62px}
+.lane{display:flex;align-items:flex-end;gap:56px;min-height:100%;width:max-content;padding:20px max(32px,env(safe-area-inset-right,0px)) 0 max(32px,env(safe-area-inset-left,0px));box-sizing:border-box;
+  background:linear-gradient(180deg,transparent calc(100% - 64px),#22262D calc(100% - 64px),#22262D calc(100% - 60px),#14171C calc(100% - 60px));transition:transform .7s cubic-bezier(.6,0,.3,1),opacity .7s}
+.lane.zoom{transform:scale(6);opacity:0}
+.district{display:grid;gap:10px;padding-bottom:64px}
+.district-sign{justify-self:start;font-size:12px;font-weight:700;letter-spacing:.2em;color:#14171C;background:#E9E3D3;padding:3px 10px;border-radius:3px;box-shadow:0 2px 0 rgba(0,0,0,.4)}
+.district-sign span{font-weight:400;letter-spacing:0;margin-left:6px;color:#5D584F;font-family:var(--mono)}
+.houses{display:flex;align-items:flex-end;gap:6px}
+.house{--body:#5A5048;--sign:#1D4F9F;--sign-ink:#fff;position:relative;width:128px;border:0;padding:0;background:none;cursor:pointer;color:inherit;display:flex;flex-direction:column;align-items:stretch;text-align:center;transition:transform .2s}
+.house:hover{transform:translateY(-4px)}
+.house .roof{height:14px;position:relative}
+.house .tank{position:absolute;right:16px;bottom:0;width:26px;height:14px;background:#2B2F37;border-radius:3px 3px 0 0}
+.house .floors{background:var(--body);display:grid;grid-template-columns:repeat(3,1fr);gap:10px 12px;padding:12px 14px;box-shadow:inset 0 -6px 0 rgba(0,0,0,.18)}
+.house .win{height:24px;background:#1A1D23;border:2px solid rgba(0,0,0,.35);border-radius:1px}
+.house .win.on{background:var(--lit,#FFD48A);box-shadow:0 0 12px rgba(255,200,120,.45)}
+.house .sign{background:var(--sign);color:var(--sign-ink);font-weight:900;font-size:13px;line-height:1.25;padding:5px 6px;min-height:20px;display:flex;align-items:center;justify-content:center;border-top:2px solid rgba(255,255,255,.25);border-bottom:2px solid rgba(0,0,0,.35);word-break:break-all}
+.house .ground{background:var(--body);filter:brightness(.82);height:74px;position:relative;display:flex;justify-content:center;align-items:flex-end}
+.house .ground .door{position:relative;inset:auto;width:62%;height:62px;display:flex}
+.house .plate-s{position:absolute;right:4px;top:6px;background:var(--plate);color:#fff;font-size:9.5px;font-weight:700;padding:1px 4px;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.8);font-variant-numeric:tabular-nums;white-space:nowrap}
+.house .tag{font-size:11px;color:var(--muted);padding-top:6px;white-space:nowrap}
+.house .tag.has{color:var(--glow)}
+.house.dark .floors,.house.dark .ground{filter:brightness(.6)}
+.house.dark .sign{filter:saturate(.5) brightness(.75)}
+
+/* ---------- glass door (海棠花玻璃) ---------- */
+.door{position:absolute;inset:0;display:flex;--lvl:0}
+.leaf{position:relative;flex:1;transition:transform 1.1s cubic-bezier(.65,0,.25,1);background-color:rgba(214,222,226,.2);background-image:var(--begonia),linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.03) 45%,rgba(255,255,255,.12));background-size:30px 30px,100% 100%;box-shadow:inset 0 0 0 9px #A9AEB3,inset 0 0 0 10px #7B8187}
+.leaf::before{content:"";position:absolute;left:0;right:0;top:52%;height:10px;background:linear-gradient(#C3C7CB,#8C9298);box-shadow:0 1px 0 #6E747A}
+.leaf::after{content:"";position:absolute;inset:10px;background:radial-gradient(circle at 50% 45%,rgba(255,206,140,calc(var(--lvl) * .85)),transparent 72%);pointer-events:none}
+.leaf.l{box-shadow:inset 0 0 0 9px #A9AEB3,inset 0 0 0 10px #7B8187,inset -2px 0 0 10px #6B7177}
+.handle{position:absolute;z-index:1;top:38%;width:6px;height:22%;border-radius:3px;background:linear-gradient(90deg,#D3D6D9,#878D93)}
+.leaf.l .handle{right:18px}.leaf.r .handle{left:18px}
+.door[data-open="true"] .leaf.l{transform:translateX(-101%)}
+.door[data-open="true"] .leaf.r{transform:translateX(101%)}
+.glassmini{display:flex;gap:3px;width:60%;height:62px;padding:4px;box-sizing:border-box;background:linear-gradient(#B4B9BE,#868C92)}
+.glassmini span{flex:1;background-color:#30353C;background-image:var(--begonia);background-size:14px 14px}
+.glassmini.lit span{background-color:#B88A4E;background-image:var(--begonia),radial-gradient(circle at 50% 40%,#FFDDA8,#A06E36);background-size:14px 14px,100% 100%;box-shadow:0 0 10px rgba(255,200,120,.45)}
+
+/* ---------- door scene ---------- */
+#scene{background-color:#2E2823;background-image:var(--tile);overflow:hidden}
+#scene::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 50% 45%,transparent 30%,rgba(0,0,0,.55));pointer-events:none}
+.back{position:absolute;z-index:6;top:calc(env(safe-area-inset-top,0px) + 14px);left:max(16px,env(safe-area-inset-left,0px))}
+.porch{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:40px;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));transition:opacity .6s}
+.porch.away{opacity:0;pointer-events:none}
+.entry{display:grid;justify-items:center;gap:0}
+.bigsign{background:var(--sign,#1D4F9F);color:var(--sign-ink,#fff);font-family:var(--display);font-weight:900;font-size:clamp(20px,3.2vw,30px);padding:8px 26px;min-width:60%;text-align:center;border:3px solid rgba(255,255,255,.3);box-shadow:0 0 30px rgba(255,200,120,.15),0 8px 18px rgba(0,0,0,.4);margin-bottom:14px;max-width:min(80vw,460px)}
+.doorway{position:relative;height:min(68vh,620px);aspect-ratio:9/16;max-width:72vw;border:14px solid #4A443E;background:#0A0B0D;overflow:hidden;box-shadow:inset 0 0 0 2px #2B2622,0 18px 40px rgba(0,0,0,.5)}
+.doorway.home{background:radial-gradient(circle at 50% 42%,#4A3620 0%,#120D08 72%)}
+.media video,.media canvas{transition:filter 1.1s,transform 1.1s}
+.media.frost video,.media.frost canvas{filter:blur(20px) brightness(1.1) saturate(.85);transform:scale(1.16)}
+.doorway .door{z-index:2}
+.door-note{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(14,17,23,.86);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-align:center;display:grid;gap:10px;width:78%;font-size:13px}
+.side{display:grid;justify-items:center;gap:16px;width:200px}
+.state{max-width:100%}
+.plate{background:var(--plate);color:#fff;border-radius:8px;padding:8px 14px 10px;box-shadow:inset 0 0 0 3px rgba(255,255,255,.85),0 6px 14px rgba(0,0,0,.4);display:grid;gap:0;text-align:center}
+.plate .road{font-size:12px;letter-spacing:.3em}
+.plate .num{font-weight:900;font-size:22px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.plate .num small{font-size:14px;margin:0 2px}
+.bell-wrap{display:grid;justify-items:center;gap:8px}
+.bell-wrap span{font-size:11px;color:#D9D3C6;letter-spacing:.3em}
+.state{font-size:13px;color:var(--fg);background:rgba(14,17,23,.7);padding:4px 12px;border-radius:99px;min-height:1.6em;text-align:center}
+.media{position:fixed;z-index:1;background:#000;overflow:hidden;transition:top .9s cubic-bezier(.6,0,.3,1),left .9s cubic-bezier(.6,0,.3,1),width .9s cubic-bezier(.6,0,.3,1),height .9s cubic-bezier(.6,0,.3,1),border-radius .9s}
+.media.noanim{transition:none}
+.media.full{z-index:5;border-radius:6px;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.media video,.media canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.media.full video{object-fit:contain}
+.info{position:fixed;z-index:5;box-sizing:border-box;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:12px;align-content:start;overflow:auto;transition:opacity .5s .4s,transform .5s .4s}
+.info.off{opacity:0;transform:translateY(12px);pointer-events:none;transition:none}
+.info .chip{justify-self:start;background:var(--plate);color:#fff;font-size:12px;font-weight:700;padding:2px 9px;border-radius:4px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.8);font-variant-numeric:tabular-nums}
+.info h3{font-family:var(--display);font-weight:900;font-size:clamp(24px,3vw,34px);line-height:1.2;margin:0}
+.info .grp{font-size:12px;color:var(--muted);margin-top:-6px}
+.fields{display:grid;gap:8px;margin:0}
+.fields div{display:grid;grid-template-columns:4.5em minmax(0,1fr);gap:8px;align-items:start}
+.fields dt{font-size:12px;color:var(--muted);padding-top:5px}
+.fields dd{margin:0}
+.fields input,.fields textarea{width:100%;box-sizing:border-box;font:14px var(--body);color:var(--fg);background:transparent;border:1px solid transparent;border-radius:6px;padding:4px 6px}
+.fields textarea{resize:vertical;min-height:60px}
+.fields input:hover,.fields textarea:hover{border-color:var(--line)}
+.fields input:focus,.fields textarea:focus{border-color:var(--glow);background:rgba(255,255,255,.04);outline:none}
+.fields input::placeholder,.fields textarea::placeholder{color:#6E6A63}
+.actions{display:flex;gap:8px;flex-wrap:wrap;padding-top:4px;border-top:1px solid var(--line)}
+.actions .btn{margin-top:10px}
+
+/* ---------- drawer ---------- */
+.drawer{position:fixed;z-index:20;top:0;right:0;bottom:0;width:min(440px,100%);background:#12161E;border-left:1px solid var(--line);display:flex;flex-direction:column;box-shadow:-20px 0 40px rgba(0,0,0,.5);padding-top:env(safe-area-inset-top,0px)}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line)}
+.drawer h4{margin:0;font-family:var(--display);font-size:18px}
+.drawer .body{overflow:auto;padding:14px 16px 24px;display:grid;gap:14px;align-content:start}
+.set{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.set output{font-family:var(--mono);color:var(--fg)}
+.set input[type=range]{accent-color:var(--glow);width:150px}
+.drawer .note{font-size:12px;color:var(--muted);margin:0}
+.roster{display:grid;gap:6px}
+.roster .row{display:grid;grid-template-columns:4.2em minmax(0,1fr) 7.5em 4.6em;gap:6px;align-items:center;font-size:12px}
+.roster .row .n{font-family:var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.roster input,.roster select{font:12px var(--body);color:var(--fg);background:var(--night2);border:1px solid var(--line);border-radius:5px;padding:4px 6px;min-width:0;width:100%;box-sizing:border-box}
+.roster .st{font-size:11px;color:var(--muted);text-align:right}
+.roster .st.has{color:var(--glow)}
+
+@media (max-width:760px){
+  .lane-wrap{overflow-x:hidden;overflow-y:auto}
+  .lane{flex-direction:column;align-items:stretch;width:auto;gap:28px;padding:16px max(16px,env(safe-area-inset-right,0px)) 24px max(16px,env(safe-area-inset-left,0px));background:none}
+  .district{padding-bottom:0}
+  .houses{flex-wrap:wrap;gap:14px 8px}
+  .house{width:calc(50% - 4px)}
+  .porch{flex-direction:column;gap:14px;justify-content:center}
+  .doorway{height:min(52vh,470px)}
+  .side{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 14px;width:auto}
+  .side .state{order:3;flex-basis:100%;max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .leaf{transition:opacity .35s}.door[data-open="true"] .leaf{transform:none!important;opacity:0}
+  .bellplate.ready .bellkey{animation:none}.media video,.media canvas{transition:none}.lane{transition:opacity .4s}.lane.zoom{transform:none}
+  .media{transition:none}
+}
+@media (min-width:761px) and (min-height:700px){.house{width:152px}.house .win{height:34px}.house .floors{gap:12px 14px;padding:14px 16px}.house .ground{height:84px}.house .ground .door{height:70px}}
+</style>
+
+</head>
+<body>
+<section class="view fade" id="intro" aria-label="介紹">
+  <div class="intro-box">
+    <span class="eyebrow">台灣聲音計畫 · 原型</span>
+    <h1>聆鈴五零</h1>
+    <p class="tagline">按下門鈴，先聽，再看。</p>
+    <p class="preface">台灣沒有單一的代表符號，卻有<b>千千萬萬種聲音</b>。垃圾車的〈給愛麗絲〉、廟口的鑼鼓、漁港阿嬤的叫賣，每天圍繞著我們。我們把這些聲音收進一條永遠蓋不完的巷子：<b>聆鈴路 50 巷</b>。每一戶都住著一個聲音，按下門鈴，先用耳朵認識它，再打開門看見它。</p>
+    <button class="bellplate ready" id="startBtn" type="button" aria-label="按門鈴，走進巷子"><span class="bellkey"><span class="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 3v11.6a3.6 3.6 0 1 0 2 3.2V7.7c2.2.4 3.9 1.7 4.9 3.6.4-3.5-2.2-6.8-6.9-8.3z" fill="#141414"/></svg></span></span></button>
+    <span class="bell-cap">按門鈴，走進巷子</span>
+  </div>
+</section>
+
+<section class="view fade gone" id="street" aria-label="聲音總覽" hidden>
+  <div class="topbar">
+    <div><h2>聆鈴路 50 巷</h2><div class="sub" id="streetSub"></div></div>
+    <div class="tools">
+      <button class="btn" id="drawerBtn" type="button">住戶名單與設定</button>
+      <label class="btn primary file" for="files">＋ 加入影片<input id="files" type="file" accept="video/*,.mov,.mp4,.m4v" multiple></label>
+    </div>
+  </div>
+  <div id="msg" role="status"></div>
+  <div class="lane-wrap" id="laneWrap"><div class="lane" id="lane"></div></div>
+</section>
+
+<section class="view fade gone" id="scene" aria-label="門口" hidden>
+  <button class="btn back" id="backBtn" type="button">← 回到巷子</button>
+  <div class="porch" id="porch">
+    <div class="entry">
+      <div class="bigsign" id="bigSign"></div>
+      <div class="doorway" id="doorway">
+        <div class="door" id="door" data-type="apt" data-open="false">
+          <div class="leaf l"><span class="handle"></span></div>
+          <div class="leaf r"><span class="handle"></span></div>
+        </div>
+        <div class="door-note" id="doorNote" hidden>
+          <span>這一戶還沒有影片</span>
+          <label class="btn primary file" for="oneFile">加入這一戶的影片<input id="oneFile" type="file" accept="video/*,.mov,.mp4,.m4v"></label>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="plate"><span class="road">聆鈴路</span><span class="num">50<small>巷</small><span id="plateNo">1</span><small>號</small></span></div>
+      <div class="bell-wrap"><button class="bellplate ready" id="bell" type="button" aria-label="按門鈴"><span class="bellkey"><span class="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 3v11.6a3.6 3.6 0 1 0 2 3.2V7.7c2.2.4 3.9 1.7 4.9 3.6.4-3.5-2.2-6.8-6.9-8.3z" fill="#141414"/></svg></span></span></button><span>門鈴</span></div>
+      <div class="state" id="state" role="status">按下門鈴</div>
+    </div>
+  </div>
+  <div class="media noanim" id="media"><video id="vid" playsinline preload="auto"></video><canvas id="demo" hidden></canvas></div>
+  <aside class="info off" id="info" aria-label="聲音資料">
+    <span class="chip" id="infoNo"></span>
+    <h3 id="infoName"></h3>
+    <div class="grp" id="infoGrp"></div>
+    <dl class="fields">
+      <div><dt><label for="fPlace">錄音地點</label></dt><dd><input id="fPlace" placeholder="尚未填寫，點這裡輸入"></dd></div>
+      <div><dt><label for="fTime">錄音時間</label></dt><dd><input id="fTime" placeholder="尚未填寫，點這裡輸入"></dd></div>
+      <div><dt><label for="fBy">錄音者</label></dt><dd><input id="fBy" placeholder="尚未填寫，點這裡輸入"></dd></div>
+      <div><dt><label for="fStory">一句故事</label></dt><dd><textarea id="fStory" placeholder="這個聲音對你的意義"></textarea></dd></div>
+    </dl>
+    <div class="actions">
+      <button class="btn" id="replayBtn" type="button">↺ 再聽一次</button>
+      <button class="btn" id="back2Btn" type="button">回到巷子</button>
+      <button class="btn primary" id="nextBtn" type="button">按下一戶 →</button>
+    </div>
+  </aside>
+</section>
+
+<aside class="drawer" id="drawer" aria-label="住戶名單與設定" hidden>
+  <header><h4>住戶名單與設定</h4><button class="btn" id="drawerClose" type="button">關閉</button></header>
+  <div class="body">
+    <label class="set" for="delay">開門前先聽 <input id="delay" type="range" min="1" max="8" step="0.5" value="2"> <output id="delayOut">2 秒</output></label>
+    <label class="set" for="chime"><input id="chime" type="checkbox" checked> 先響「叮咚」</label>
+    <p class="note">把影片檔一次選進來或拖進巷子，檔名跟住戶名稱相同的會自動住進那一戶（例如「剁魚.mov」住進「剁魚」），對不上的會新蓋一戶。影片只在你的瀏覽器裡播放，不會上傳，重新整理後要重新加入。iPhone 的 .mov 若播不出來，請轉成 H.264 編碼的 .mp4。</p>
+    <p class="note">「示意聲音」是程式合成的聲音配示意畫面，不是真實錄音；加入那一戶的影片後就會換成影片。</p>
+    <div class="roster" id="roster"></div>
+  </div>
+</aside>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------------- Analysis ---------------- */
+const N=1024,FRAMES=120,LV=10;
+const COS=new Float32Array(N/2),SIN=new Float32Array(N/2),REV=new Uint32Array(N),HANN=new Float32Array(N);
+for(let i=0;i<N/2;i++){COS[i]=Math.cos(2*Math.PI*i/N);SIN[i]=Math.sin(2*Math.PI*i/N)}
+for(let i=0;i<N;i++){let r=0,x=i;for(let j=0;j<LV;j++){r=(r<<1)|(x&1);x>>=1}REV[i]=r;HANN[i]=.5-.5*Math.cos(2*Math.PI*i/(N-1))}
+function fft(re,im){
+  for(let i=0;i<N;i++){const j=REV[i];if(j>i){let t=re[i];re[i]=re[j];re[j]=t;t=im[i];im[i]=im[j];im[j]=t}}
+  for(let size=2;size<=N;size*=2){const h=size/2,st=N/size;
+    for(let i=0;i<N;i+=size)for(let j=i,k=0;j<i+h;j++,k+=st){const l=j+h,tr=re[l]*COS[k]+im[l]*SIN[k],ti=-re[l]*SIN[k]+im[l]*COS[k];re[l]=re[j]-tr;im[l]=im[j]-ti;re[j]+=tr;im[j]+=ti}}
+}
+function analyze(raw,sr){
+  let data=raw; if(data.length<N*2){data=new Float32Array(N*2);data.set(raw)}
+  let peak=0;for(let i=0;i<raw.length;i++){const a=Math.abs(raw[i]);if(a>peak)peak=a}
+  const g=peak>0?.9/peak:1,hop=(data.length-N)/(FRAMES-1);
+  const re=new Float32Array(N),im=new Float32Array(N),prev=new Float32Array(N/2);
+  const v=[],cent=[],nz=[],flux=[];
+  for(let f=0;f<FRAMES;f++){
+    const s=Math.round(f*hop);let sq=0;
+    for(let i=0;i<N;i++){const x=data[s+i]*g;sq+=x*x;re[i]=x*HANN[i];im[i]=0}
+    const vv=clamp((20*Math.log10(Math.sqrt(sq/N)+1e-9)+50)/50);v.push(vv);
+    fft(re,im);
+    let sm=0,fl=0,lm=0,pp=0,pf=0;
+    for(let k=1;k<N/2;k++){const m=Math.hypot(re[k],im[k]);sm+=m;const p=m*m+1e-12;lm+=Math.log(m+1e-9);pp+=p;pf+=p*k*sr/N;fl+=Math.max(0,m-prev[k]);prev[k]=m}
+    const K=N/2-1;cent.push(pp>0?pf/pp:0);const fm=Math.exp(lm/K)/(sm/K+1e-9);nz.push(vv<.02?0:clamp((fm-.12)/.55));flux.push(f?fl:0);
+  }
+  let mean=0;for(const x of flux)mean+=x;mean/=FRAMES;let sd=0;for(const x of flux)sd+=(x-mean)**2;sd=Math.sqrt(sd/FRAMES);
+  let on=0,last=-9;
+  for(let f=2;f<FRAMES-1;f++)if(flux[f]>mean+1.4*sd&&flux[f]>=flux[f-1]&&flux[f]>=flux[f+1]&&v[f]>.2&&f-last>2){on++;last=f}
+  let wv=0,wc=0,wn=0;const sv=[...v].sort((a,b)=>a-b),mv=sv[Math.floor(FRAMES*.9)]*FRAMES;
+  for(let f=0;f<FRAMES;f++){const w=v[f]*v[f];wv+=w;wc+=w*cent[f];wn+=w*nz[f]}
+  const dur=raw.length/sr;
+  return {vol:mv/FRAMES,cent:wv?wc/wv:0,nz:wv?wn/wv:0,rate:on/Math.max(dur,.5),dur};
+}
+
+/* ---------------- Synthesis (illustrative samples) ---------------- */
+const SR=22050,TP=2*Math.PI;
+function synth(p,seed){
+  const dur=p.dur||3,L=Math.floor(dur*SR),d=new Float32Array(L),r=mulberry32(seed);
+  const add=(t0,len,fn)=>{const s=Math.floor(t0*SR),e=Math.min(L,s+Math.floor(len*SR));for(let i=Math.max(0,s);i<e;i++)d[i]+=fn((i-s)/SR)};
+  const each=fn=>{for(let i=0;i<L;i++)d[i]+=fn(i/SR)};
+  const lpN=a=>{let y=0;return()=>(y+=a*((r()*2-1)-y))};
+  switch(p.k){
+  case'mix':p.parts.forEach((sp,j)=>{const x=synth(Object.assign({dur},sp),seed+j*13);for(let i=0;i<L;i++)d[i]+=x[i]*(sp.gain||1)});break;
+  case'bell':{const R=p.ratios||[1,2,2.76,3.9,5.4],A=[1,.5,.4,.25,.15];
+    p.times.forEach(t0=>add(t0,p.len||1.2,t=>{let v=0;for(let j=0;j<R.length;j++)v+=A[j]*Math.exp(-t*p.decay*(1+j*.5))*Math.sin(TP*p.f*R[j]*t);return v+Math.exp(-t*600)*(r()*2-1)*.25}));break}
+  case'beep':p.notes.forEach(([t0,len,f,f2])=>add(t0,len,t=>{const e=Math.min(1,t/.005,(len-t)/.01);const s=Math.sin(TP*f*t)+(f2?Math.sin(TP*f2*t):0);return e*(.5*s+.3*Math.sign(s))}));break;
+  case'impact':p.hits.forEach(([t0,A],h)=>{const f1=p.f1+h*50,f2=p.f2-h*30;add(t0,.25,t=>A*Math.exp(-t*p.damp)*(.6*Math.sin(TP*f1*t)+.4*Math.sin(TP*f2*t+1))+A*Math.exp(-t*350)*(r()*2-1)*.9)});break;
+  case'rattle':for(let n=0;n<p.n;n++){const t0=p.start+r()*p.span,A=.3+r()*.7,f=p.f*(.8+r()*.5);add(t0,.08,t=>A*Math.exp(-t*90)*Math.sin(TP*f*t)+A*Math.exp(-t*500)*(r()*2-1)*.6)}break;
+  case'drum':p.times.forEach(([t0,A])=>add(t0,.6,t=>{const f=p.f*(1+1.2*Math.exp(-t*25));return A*Math.exp(-t*7)*Math.sin(TP*f*t)+A*Math.exp(-t*60)*(r()*2-1)*.3}));
+    (p.gong||[]).forEach(t0=>add(t0,1.6,t=>.5*Math.exp(-t*2.5)*(Math.sin(TP*220*t)+.6*Math.sin(TP*331*t+.5)+.4*Math.sin(TP*487*t))));break;
+  case'crackers':for(let n=0;n<p.n;n++){const t0=p.start+Math.pow(r(),p.skew||1)*p.span,A=.4+r()*.6;add(t0,.12,t=>A*(Math.exp(-t*180)*(r()*2-1)+Math.exp(-t*40)*.5*Math.sin(TP*90*t)))}break;
+  case'booms':p.times.forEach(t0=>{const z=lpN(.05);add(t0,1.6,t=>Math.exp(-t*2.8)*z()*6+Math.exp(-t*60)*(r()*2-1)*.6)});break;
+  case'murmur':{const z=lpN(p.lp||.08);each(t=>z()*1.6*(.7+.3*Math.sin(TP*.9*t))*(p.swell?Math.min(1,.25+t/dur):1));
+    for(let n=0;n<p.voices;n++){const t0=r()*(dur-.5),len=.15+r()*.4,f0=(p.f0||140)+r()*190,vb=4+r()*3,A=p.va||.22;
+      add(t0,len,t=>{const f=f0*(1+.03*Math.sin(TP*vb*t));let v=0;for(let h=1;h<=6;h++){const fh=f*h,fm=Math.exp(-(((fh-700)/500)**2));v+=(.35+fm)/h*Math.sin(TP*fh*t)}return A*Math.sin(Math.PI*t/len)*v})}
+    (p.horns||[]).forEach(t0=>add(t0,.7,t=>{const e=Math.min(1,t/.02,(.7-t)/.05);return .3*e*Math.sign(Math.sin(TP*415*t)+Math.sin(TP*523*t))}));
+    if(p.thumps)for(let tt=p.thumps[0];tt<dur-.1;tt+=p.thumps[1])add(tt,.15,t=>.6*Math.exp(-t*30)*(Math.sin(TP*120*t)+(r()*2-1)*.5));
+    break}
+  case'wind':{const a=lpN(.02),b=lpN(.06);each(t=>(.3+.7*Math.pow(.5+.5*Math.sin(TP*.33*t-1.2),2))*(a()*6+b()*1.5));break}
+  case'rain':{const a=lpN(.15);each(()=>a()*.35);for(let n=0;n<p.n;n++){const t0=r()*dur,A=.2+r()*.8,f=2500+r()*3000;add(t0,.03,t=>A*Math.exp(-t*250)*Math.sin(TP*f*t))}break}
+  case'waves':{let y=0;const a=lpN(p.lp||.05);each(t=>{const ph=(t/p.per+(p.ph||0))%1,sw=Math.pow(Math.sin(Math.PI*ph),2),x=r()*2-1;y+=.3*(x-y);return sw*a()*4+(p.pebble?sw*sw*(x-y)*.5:0)});
+    if(p.blow)for(let tt=p.blow;tt<dur;tt+=p.per){const z=lpN(.25);add(tt,.7,t=>Math.sin(Math.PI*t/.7)*z()*3)}break}
+  case'turbine':{const a=lpN(.04);each(t=>(.3+.7*Math.pow(.5+.5*Math.sin(TP*.75*t),3))*a()*5+.12*Math.sin(TP*38*t));break}
+  case'buzz':{let y=0;each(t=>{const env=Math.min(1,t/.6)*Math.min(1,(dur-t)/.5)*(.75+.25*Math.sin(TP*.6*t)),pl=Math.pow(.5+.5*Math.sin(TP*48*t),3),x=r()*2-1;y+=.3*(x-y);
+    return env*(pl*(.5*Math.sin(TP*4300*t)+.3*Math.sin(TP*5100*t)+.2*Math.sin(TP*6200*t))+.25*(x-y)*pl)});break}
+  case'frog':{for(let n=0;n<p.n;n++){const t0=r()*(dur-.4),f=p.f*(.85+r()*.3);for(let q=0;q<8;q++)add(t0+q*.028,.025,t=>Math.sin(Math.PI*t/.025)*(Math.sin(TP*f*t)+.5*Math.sin(TP*2*f*t))*.5)}const a=lpN(.1);each(()=>a()*.15);break}
+  case'chirp':for(let c=0;c<dur-.2;c+=p.every*(.8+r()*.4))for(let q=0;q<3;q++)add(c+q*.045,.035,t=>Math.sin(Math.PI*t/.035)*Math.sin(TP*p.f*t)*.6);break;
+  case'engine':{let ph=0;const a=lpN(.1);each(t=>{const u=t/dur,f=p.f0+(p.f1-p.f0)*(p.rise?Math.min(1,u*1.6):0)+3*Math.sin(TP*.7*t);ph+=f/SR;
+    const e=Math.min(1,t/.3)*Math.min(1,(dur-t)/.4);return e*(.5*(2*(ph%1)-1)*(.6+.4*Math.sin(TP*ph*.5))+a()*1.2)});break}
+  case'horn':p.times.forEach(([t0,len])=>add(t0,len,t=>{const e=Math.min(1,t/.05,(len-t)/.1);let v=0;[311,370,440].forEach(f=>v+=2*((f*t)%1)-1);return .3*e*v}));break;
+  case'drone':each(t=>{let v=0;const fm=500+200*Math.sin(TP*.4*t);for(let h=1;h<=8;h++)v+=Math.exp(-(((p.f*h-fm)/300)**2))*Math.sin(TP*p.f*h*t)/h;return .5*v*Math.min(1,t/.3)*Math.min(1,(dur-t)/.3)});break;
+  case'melody':{const mt=m=>440*Math.pow(2,(m-69)/12);
+    p.notes.forEach(([m,t0,len])=>{const f=mt(m);add(t0,len+.6,t=>{const e=Math.min(1,t/.01)*Math.exp(-t*(p.decay||2.5));
+      return p.tim==='chime'?e*(Math.sin(TP*f*t)+.4*Math.sin(TP*f*2.76*t)*Math.exp(-t*3)):e*(Math.sin(TP*f*t)+.5*Math.sin(TP*2*f*t)+.25*Math.sin(TP*3*f*t))})});break}
+  case'hiss':p.times.forEach(([t0,len])=>{let y=0;add(t0,len,t=>{const x=r()*2-1;y+=.4*(x-y);return Math.sin(Math.PI*t/len)*(x-y)*.8})});break;
+  }
+  if(p.band){let y=0,z=0;for(let i=0;i<L;i++){y+=p.band*(d[i]-y);z+=.05*(y-z);d[i]=y-z}}
+  if(p.echo){const dl=Math.floor(p.echo[0]*SR);for(let i=dl;i<L;i++)d[i]+=p.echo[1]*d[i-dl]}
+  return d;
+}
+
+/* ---------------- Catalogue ---------------- */
+const CATS=['交通','信仰','市場與吃','自然','生活','公共與節慶'];
+const PLACES={'台北':[121.52,25.05],'新北':[121.46,25.01],'基隆':[121.74,25.13],'桃園':[121.30,24.99],'新竹':[120.97,24.80],'苗栗':[120.82,24.56],'台中':[120.68,24.14],'彰化':[120.54,24.08],'南投':[120.97,23.91],'雲林':[120.43,23.70],'嘉義':[120.45,23.48],'台南':[120.20,23.00],'高雄':[120.30,22.62],'屏東':[120.49,22.67],'宜蘭':[121.75,24.75],'花蓮':[121.60,23.98],'台東':[121.14,22.76],'澎湖':[119.57,23.57],'蘭嶼':[121.55,22.05],'綠島':[121.49,22.66],'金門':'inset1','馬祖':'inset2'};
+const FE=[[76,0,.25],[75,.25,.25],[76,.5,.25],[75,.75,.25],[76,1,.25],[71,1.25,.25],[74,1.5,.25],[72,1.75,.25],[69,2,.6]];
+const WM=[[64,0,.5],[60,.55,.5],[62,1.1,.5],[55,1.65,.9],[55,2.6,.5],[62,3.15,.5],[64,3.7,.5],[60,4.25,1]];
+const SOUNDS=[
+ ['平交道噹噹聲','交通','彰化','放學路上最熟悉的警告聲',{k:'bell',f:740,decay:6,len:.9,times:[.1,.6,1.1,1.6,2.1,2.6]}],
+ ['捷運關門警示','交通','台北','嗶嗶嗶，門要關了',{k:'beep',notes:[[.2,.15,1800],[.45,.15,1800],[.7,.15,1800],[.95,.15,1800],[1.2,.15,1800],[1.45,.15,1800]],dur:2}],
+ ['公車下車鈴','交通','台中','按下去的那一聲「叮」',{k:'bell',f:1320,decay:9,len:.6,times:[.3],dur:1.5}],
+ ['YouBike 還車嗶聲','交通','台北','還車成功的雙音提示',{k:'beep',notes:[[.2,.12,1500],[.36,.2,2000]],dur:1.2}],
+ ['紅燈轉綠的機車群','交通','台南','一整排機車同時催油門',{k:'engine',f0:40,f1:110,rise:1,dur:3.2}],
+ ['旗津渡輪','交通','高雄','引擎聲混著拍打船身的浪',{k:'mix',dur:3.6,parts:[{k:'engine',f0:48,f1:48,gain:.8},{k:'waves',per:1.8,gain:.7}]}],
+ ['台鐵列車汽笛','交通','花蓮','山洞前的長鳴',{k:'horn',times:[[.2,1.1],[1.6,.5]],echo:[.28,.35],dur:3}],
+ ['輕軌叮叮鈴','交通','高雄','輕軌過路口的提醒',{k:'bell',f:1050,decay:7,len:.7,times:[.2,.42,1.3,1.52],dur:2.4}],
+ ['擲筊','信仰','台南','筊杯落地，等神明的答案',{k:'impact',f1:1700,f2:2500,damp:42,hits:[[.35,1],[.39,.8],[.52,.65],[.6,.45],[.69,.3],[.75,.18],[.8,.1]],dur:2.2}],
+ ['搖籤筒','信仰','彰化','竹籤在筒裡互相敲擊',{k:'rattle',n:70,start:.1,span:1.8,f:1500,dur:2.4}],
+ ['廟宇晨鐘','信仰','雲林','清晨第一聲',{k:'bell',f:98,decay:.9,len:4,times:[.1],ratios:[1,2.4,3.1,4.6,5.9],dur:4}],
+ ['遶境鑼鼓','信仰','台中','陣頭經過家門口',{k:'drum',f:70,times:[[.1,1],[.45,.8],[.8,1],[1.15,.8],[1.5,1],[1.85,.8],[2.2,1],[2.55,.8]],gong:[.1,1.5],dur:3.2}],
+ ['鞭炮','信仰','台南','神轎前的開路聲',{k:'crackers',n:160,start:.1,span:2.6,skew:1.3,dur:3}],
+ ['誦經與木魚','信仰','台北','規律的木魚和低沉的經文',{k:'mix',dur:3.4,parts:[{k:'drone',f:110,gain:.8},{k:'impact',f1:900,f2:1250,damp:60,hits:[[.2,.8],[.75,.8],[1.3,.8],[1.85,.8],[2.4,.8],[2.95,.8]],gain:.9}]}],
+ ['夜市人聲','市場與吃','台北','攤販、遊客、遊戲機混在一起',{k:'murmur',voices:16,dur:3.4}],
+ ['傳統市場叫賣','市場與吃','嘉義','「來喔來喔」',{k:'murmur',voices:24,va:.35,f0:180,dur:3.2}],
+ ['剁雞肉','市場與吃','新竹','砧板上的重擊',{k:'impact',f1:180,f2:320,damp:28,hits:[[.2,1],[.55,1],[.9,.9],[1.25,1],[1.6,.95],[1.95,1]],dur:2.6}],
+ ['炸雞排的油鍋','市場與吃','台中','下鍋那一刻的滋滋聲',{k:'mix',dur:3,parts:[{k:'rain',n:900,gain:1},{k:'hiss',times:[[0,3]],gain:.8}]}],
+ ['手搖飲封膜機','市場與吃','台中','「喀」一聲，封好了',{k:'mix',dur:1.8,parts:[{k:'impact',f1:600,f2:950,damp:35,hits:[[.3,1]]},{k:'hiss',times:[[.35,.6]],gain:.6}]}],
+ ['夏日蟬鳴','自然','台北','整個夏天的背景音',{k:'buzz',dur:3.2}],
+ ['颱風夜的風','自然','宜蘭','窗外呼嘯整夜',{k:'wind',dur:3.6}],
+ ['雨打鐵皮屋頂','自然','基隆','雨都的日常',{k:'rain',n:500,dur:3.2}],
+ ['稻田蛙鳴','自然','雲林','插秧後的夜晚',{k:'frog',n:14,f:700,dur:3.2}],
+ ['七星潭礫石浪聲','自然','花蓮','浪退時石頭滾動',{k:'waves',per:2.6,pebble:1,dur:3.6}],
+ ['澎湖風櫃洞','自然','澎湖','海水灌進洞穴噴出',{k:'waves',per:1.6,blow:.9,lp:.08,dur:3.4}],
+ ['風力發電機','自然','苗栗','海岸邊葉片切過風',{k:'turbine',dur:3.4}],
+ ['夜晚蟲鳴','自然','南投','山裡的夜',{k:'chirp',f:4600,every:.42,dur:3}],
+ ['垃圾車音樂','生活','新北','聽到就要衝下樓',{k:'melody',notes:FE,band:.25,echo:[.18,.3],dur:3.2}],
+ ['上課鐘聲','生活','台中','每個人都記得的旋律',{k:'melody',notes:WM,tim:'chime',decay:1.4,dur:5.6}],
+ ['電鍋跳起','生活','桃園','飯好了',{k:'impact',f1:900,f2:1400,damp:60,hits:[[.5,1]],dur:1.4}],
+ ['洗麻將','生活','台南','過年的牌桌',{k:'rattle',n:220,start:.1,span:2.8,f:2200,dur:3.1}],
+ ['便利商店叮咚','生活','台北','走進店裡的那一刻',{k:'melody',notes:[[76,.1,.5],[72,.6,.9]],tim:'chime',decay:1.6,dur:2}],
+ ['國家級警報','公共與節慶','花蓮','所有手機同時響起',{k:'beep',notes:[[.1,.5,853,960],[.7,.5,853,960],[1.3,.5,853,960],[1.9,.5,853,960],[2.5,.5,853,960]],dur:3.1}],
+ ['選舉造勢晚會','公共與節慶','台中','「凍蒜！」',{k:'murmur',voices:30,va:.3,horns:[.4,1.4,2.3],dur:3.2}],
+ ['跨年倒數','公共與節慶','台北','五、四、三、二、一',{k:'mix',dur:3.6,parts:[{k:'murmur',voices:20,swell:1},{k:'booms',times:[2.2,2.7,3.1],gain:.9}]}],
+ ['金門心戰廣播','公共與節慶','金門','隔著海峽的喊話',{k:'murmur',voices:10,va:.5,lp:.03,band:.3,echo:[.35,.45],dur:3.4}],
+ ['棒球應援','公共與節慶','桃園','加油棒和整齊的口號',{k:'murmur',voices:18,thumps:[.1,.38],dur:3.2}],
+];
+
+
+
+/* ---------------- Groups ---------------- */
+const GROUPS=[
+  {id:'交通',door:'bus',tone:'#C0392B',body:'#3B4A5C',sign:'#C0392B',ink:'#fff',bg:'#1C2836'},
+  {id:'漁港',door:'roll',tone:'#5E7F84',body:'#31545A',sign:'#F0C24B',ink:'#1B1407',bg:'#14303A'},
+  {id:'市場與小吃',door:'roll',tone:'#8A9097',body:'#6B4A32',sign:'#D9482B',ink:'#fff',bg:'#3A2A1C'},
+  {id:'夜市與童玩',door:'roll',tone:'#3E6B8C',body:'#4A3A63',sign:'#E9A23B',ink:'#1B1407',bg:'#2A1C36'},
+  {id:'信仰與廟會',door:'temple',tone:'#9C281F',body:'#7A2A20',sign:'#D9A441',ink:'#2A1405',bg:'#3A1712'},
+  {id:'海與自然',door:'screen',tone:'#B8BDC2',body:'#2F5A50',sign:'#EDE7D9',ink:'#1E2A26',bg:'#11302C'},
+  {id:'生活與公共',door:'apt',tone:'#8E2F26',body:'#5A5048',sign:'#1D4F9F',ink:'#fff',bg:'#2A2420'},
+];
+const G=id=>GROUPS.find(g=>g.id===id)||GROUPS[6];
+const DOORNAME={bus:'車門',roll:'鐵捲門',temple:'廟門',screen:'紗門',apt:'公寓鐵門'};
+const LIST={
+  '交通':['公車下車','大巴士','客運服務人員','高捷 A','高捷 B','中捷進站、開門逼逼','北捷入站','北捷藍線','輕軌','輕軌警示','大港橋轉','高速公路橋下'],
+  '漁港':['去魚鱗','剁魚','清理魚','漁港阿嬤切魚聊八卦','漁港叫賣','漁船入港','漁船卸魚、買魚','船'],
+  '市場與小吃':['市場','切仙草','牛雜湯','炒豬油','尬果汁','榨椰子水','糖炒栗子','挫冰店','ㄘㄨㄚˋ冰機','彈珠汽水'],
+  '夜市與童玩':['打彈珠','套圈圈','釣魚玩具'],
+  '信仰與廟會':['香爐點火','廟音樂','廟噴水池','神秘算命裝置','舞龍舞獅','北港入轎','白沙屯','火旁龍'],
+  '海與自然':['浪拍打','浪沖刷','海浪拍打礁岩（激烈）','海浪風聲','礫石海灘（粉鳥林）','風','風力發電','蛙鳴','麻雀聲','鴨鴨','蝦蝦','下雨鐵皮屋'],
+  '生活與公共':['巷弄','北極亭歌友會','公共鋼琴','造勢'],
+};
+const DEMO={'公車下車':'公車下車鈴','輕軌警示':'輕軌叮叮鈴','市場':'傳統市場叫賣','造勢':'選舉造勢晚會','浪拍打':'七星潭礫石浪聲','風力發電':'風力發電機','蛙鳴':'稻田蛙鳴','下雨鐵皮屋':'雨打鐵皮屋頂','舞龍舞獅':'遶境鑼鼓'};
+const RULES=[
+  ['夜市與童玩',['夜市','打彈珠','彈珠台','套圈','釣魚玩具','夾娃娃']],
+  ['市場與小吃',['汽水','市場','仙草','牛雜','豬油','果汁','椰子','栗子','冰','雞排','油鍋']],
+  ['漁港',['魚','漁','船','渡輪']],
+  ['交通',['公車','巴士','客運','高捷','中捷','北捷','捷運','輕軌','大港橋','高速公路','火車','台鐵','高鐵','平交道','機車']],
+  ['信仰與廟會',['廟','香爐','算命','舞龍','舞獅','入轎','白沙屯','火旁龍','火傍龍','北港','擲筊','籤','鑼鼓']],
+  ['海與自然',['浪','海','風','蛙','麻雀','鴨','蝦','雨','礫石','蟲','鳥','蟬']],
+];
+const classify=n=>{for(const[g,k]of RULES)if(k.some(w=>n.includes(w)))return g;return'生活與公共'};
+const norm=s=>s.replace(/[\s、，,。．.（）()\-_＿「」]/g,'').toLowerCase();
+
+let houses=[],uid=0,nextNo=1;
+GROUPS.forEach(g=>LIST[g.id].forEach(name=>{
+  const h={id:++uid,no:nextNo++,name,group:g.id,place:'',time:'',by:'',story:'',url:null,demoIdx:-1};
+  if(DEMO[name]){const i=SOUNDS.findIndex(s=>s[0]===DEMO[name]);if(i>=0)h.demoIdx=i}
+  houses.push(h);
+}));
+const hasMedia=h=>!!h.url||h.demoIdx>=0;
+
+/* ---------------- Street ---------------- */
+const lane=$('lane'),laneWrap=$('laneWrap');
+function buildStreet(){
+  lane.innerHTML='';
+  GROUPS.forEach(g=>{
+    const list=houses.filter(h=>h.group===g.id);if(!list.length)return;
+    const d=document.createElement('div');d.className='district';
+    const s=document.createElement('div');s.className='district-sign';s.textContent=g.id;const c=document.createElement('span');c.textContent=list.length+' 戶';s.appendChild(c);
+    const row=document.createElement('div');row.className='houses';
+    list.forEach(h=>row.appendChild(houseEl(h,g)));
+    d.append(s,row);lane.appendChild(d);
+  });
+  const n=houses.length,v=houses.filter(h=>h.url).length,dm=houses.filter(h=>!h.url&&h.demoIdx>=0).length;
+  $('streetSub').textContent=`${n} 戶・${v} 戶有影片・${dm} 戶示意聲音・${n-v-dm} 戶等待點亮`;
+  buildRoster();
+}
+function houseEl(h,g){
+  const r=mulberry32(h.id*7919),floors=2+Math.floor(r()*3),lit=h.url?.75:h.demoIdx>=0?.5:.12;
+  const b=document.createElement('button');b.type='button';b.className='house'+(hasMedia(h)?'':' dark');b.dataset.id=h.id;
+  b.style.setProperty('--body',g.body);b.style.setProperty('--sign',g.sign);b.style.setProperty('--sign-ink',g.ink);
+  b.setAttribute('aria-label',`50巷${h.no}號 ${h.name}`);
+  const roof=document.createElement('div');roof.className='roof';if(r()<.55){const t=document.createElement('span');t.className='tank';roof.appendChild(t)}
+  const fl=document.createElement('div');fl.className='floors';
+  for(let i=0;i<floors*3;i++){const w=document.createElement('span');w.className='win'+(r()<lit?' on':'');if(r()<.3)w.style.setProperty('--lit','#E6F0FF');fl.appendChild(w)}
+  const sign=document.createElement('div');sign.className='sign';sign.textContent=h.name;
+  const gr=document.createElement('div');gr.className='ground';
+  gr.appendChild(glassEl(hasMedia(h)));
+  const pl=document.createElement('span');pl.className='plate-s';pl.textContent=`50巷${h.no}號`;gr.appendChild(pl);
+  const tag=document.createElement('span');tag.className='tag'+(h.url?' has':'');tag.textContent=h.url?'▶ 有影片':h.demoIdx>=0?'示意聲音':'等待點亮';
+  b.append(roof,fl,sign,gr,tag);
+  b.addEventListener('click',()=>openHouse(h,b));
+  return b;
+}
+function glassEl(lit){const d=document.createElement('div');d.className='glassmini'+(lit?' lit':'');d.innerHTML='<span></span><span></span>';return d}
+laneWrap.addEventListener('wheel',e=>{if(innerWidth<=760)return;if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){laneWrap.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false});
+
+/* ---------------- Views ---------------- */
+function show(el){el.hidden=false;requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.remove('gone')))}
+function hide(el){el.classList.add('gone');setTimeout(()=>{if(el.classList.contains('gone'))el.hidden=true},520)}
+$('startBtn').addEventListener('click',async()=>{
+  ensureAudio();try{await actx.resume()}catch(e){}
+  if($('chime').checked)chime();
+  $('startBtn').setAttribute('aria-disabled','true');
+  setTimeout(()=>{hide($('intro'));show($('street'))},REDUCED?100:700);
+});
+
+/* ---------------- Audio ---------------- */
+let actx=null,analyser=null,vidNode=null,bufSrc=null;
+function ensureAudio(){if(!actx){const C=window.AudioContext||window.webkitAudioContext;actx=new C();analyser=actx.createAnalyser();analyser.fftSize=512;analyser.smoothingTimeConstant=.6;analyser.connect(actx.destination)}return actx}
+function chime(){
+  const t0=actx.currentTime+.02;
+  [[659.25,0,1.1],[523.25,.42,1.6]].forEach(([f,d,len])=>{const g=actx.createGain();g.gain.setValueAtTime(0,t0+d);g.gain.linearRampToValueAtTime(.3,t0+d+.01);g.gain.exponentialRampToValueAtTime(.0008,t0+d+len);g.connect(actx.destination);
+    [1,2.01,3.02].forEach((m,k)=>{const o=actx.createOscillator();o.frequency.value=f*m;const og=actx.createGain();og.gain.value=[1,.25,.08][k];o.connect(og);og.connect(g);o.start(t0+d);o.stop(t0+d+len)})});
+  return new Promise(res=>later(res,950));
+}
+
+/* ---------------- Door scene ---------------- */
+const scene=$('scene'),door=$('door'),media=$('media'),vid=$('vid'),demoCv=$('demo'),dctx=demoCv.getContext('2d'),bell=$('bell'),info=$('info'),porch=$('porch');
+let cur=null,phase='off',timers=[],zoomOrigin=null;
+const later=(fn,ms)=>{const t=setTimeout(fn,ms);timers.push(t);return t};
+const clearTimers=()=>{timers.forEach(clearTimeout);timers=[]};
+const state=t=>{$('state').textContent=t};
+
+function openHouse(h,el){
+  ensureAudio();
+  const r=(el.querySelector('.door')||el).getBoundingClientRect(),w=laneWrap.getBoundingClientRect();
+  zoomOrigin=`${r.left+r.width/2-w.left+laneWrap.scrollLeft}px ${r.top+r.height/2-w.top+laneWrap.scrollTop}px`;
+  lane.style.transformOrigin=zoomOrigin;lane.classList.add('zoom');
+  setTimeout(()=>{setupScene(h);show(scene)},REDUCED?60:520);
+}
+function setupScene(h){
+  stopMedia();clearTimers();cur=h;const g=G(h.group);
+  door.dataset.type=g.door;door.style.setProperty('--tone',g.tone);door.dataset.open='false';
+  const bs=$('bigSign');bs.textContent=h.name;bs.style.setProperty('--sign',g.sign);bs.style.setProperty('--sign-ink',g.ink);
+  $('plateNo').textContent=h.no;porch.classList.remove('away');
+  info.classList.add('off');media.classList.remove('full');media.classList.add('noanim');media.style.visibility='hidden';
+  $('doorNote').hidden=hasMedia(h);$('doorway').classList.toggle('home',hasMedia(h));media.classList.remove('frost');door.style.setProperty('--lvl','0');
+  bell.setAttribute('aria-disabled',hasMedia(h)?'false':'true');bell.classList.toggle('ready',hasMedia(h)&&!REDUCED);
+  state(hasMedia(h)?'按下門鈴，先聽聽看門外是誰':'這一戶還沒有影片');
+  phase='ready';
+  requestAnimationFrame(placeMediaAtDoor);
+}
+function placeMediaAtDoor(){
+  const r=$('doorway').getBoundingClientRect(),b=14;
+  Object.assign(media.style,{left:r.left+b+'px',top:r.top+b+'px',width:r.width-2*b+'px',height:r.height-2*b+'px'});
+}
+function fullRect(){
+  const W=innerWidth,H=innerHeight;
+  if(W<=760){const h=Math.min(H*.5,(W-32)*16/9),w=h*9/16;return{media:{left:(W-w)/2,top:64,width:w,height:h},info:{left:16,top:64+h+12,width:W-32,maxHeight:H-(64+h+12)-16}}}
+  const mh=Math.min(H-112,900),mw=mh*9/16,infoW=Math.min(380,W-mw-96),gap=28,left=(W-(mw+gap+infoW))/2,top=(H-mh)/2+8;
+  return{media:{left,top,width:mw,height:mh},info:{left:left+mw+gap,top:top+Math.max(0,(mh-460)/2),width:infoW,maxHeight:mh}};
+}
+function px(o){const r={};for(const k in o)r[k]=o[k]+'px';return r}
+async function ring(){
+  if(phase!=='ready'||!cur||!hasMedia(cur))return;
+  phase='chime';bell.setAttribute('aria-disabled','true');bell.classList.remove('ready');
+  ensureAudio();try{await actx.resume()}catch(e){}
+  if($('chime').checked){state('叮咚！');await chime()}
+  if(phase!=='chime')return;
+  phase='listen';state('門外有人……仔細聽');
+  placeMediaAtDoor();media.classList.add('frost');media.style.visibility='visible';
+  const ok=cur.url?await playVideo():playDemo();
+  if(!ok){phase='ready';state('影片播不出來，請轉成 H.264 編碼的 .mp4 再加入');bell.setAttribute('aria-disabled','false');media.style.visibility='hidden';return}
+  later(openDoor,(+$('delay').value)*1000);
+}
+async function playVideo(){
+  demoCv.hidden=true;vid.hidden=false;
+  if(!vidNode){try{vidNode=actx.createMediaElementSource(vid);vidNode.connect(analyser)}catch(e){}}
+  vid.src=cur.url;vid.currentTime=0;vid.onended=onEnded;
+  try{await vid.play();return true}catch(e){return false}
+}
+function playDemo(){
+  vid.hidden=true;vid.removeAttribute('src');demoCv.hidden=false;sizeDemo({width:parseFloat(media.style.width)||300,height:parseFloat(media.style.height)||400});
+  if(!cur.data)cur.data=synth(SOUNDS[cur.demoIdx][4],cur.demoIdx*101+7);
+  const b=actx.createBuffer(1,cur.data.length,SR);b.copyToChannel(cur.data,0);
+  bufSrc=actx.createBufferSource();bufSrc.buffer=b;bufSrc.loop=true;bufSrc.connect(analyser);
+  bufSrc.start();bufSrc.stop(actx.currentTime+Math.max(7,b.duration*2));bufSrc.onended=onEnded;return true;
+}
+function openDoor(){
+  if(phase!=='listen')return;
+  phase='open';door.dataset.open='true';media.classList.remove('frost');state('開門了');
+  later(walkIn,REDUCED?200:1050);
+}
+function walkIn(){
+  if(phase!=='open')return;
+  phase='watch';const f=fullRect();
+  fillInfo();media.classList.remove('noanim');media.classList.add('full');Object.assign(media.style,px(f.media));
+  Object.assign(info.style,px(f.info));info.classList.remove('off');porch.classList.add('away');
+  sizeDemo(f.media);
+}
+function onEnded(){
+  if(phase==='listen'){openDoor();later(()=>{if(phase==='open')walkIn()},1100)}
+  if(phase==='open')later(walkIn,600);
+}
+function fillInfo(){
+  const h=cur,g=G(h.group);
+  $('infoNo').textContent=`聆鈴路 50 巷 ${h.no} 號`;$('infoName').textContent=h.name;
+  $('infoGrp').textContent=`${g.id}${h.url?'':'・示意聲音與示意畫面'}`;
+  [['fPlace','place'],['fTime','time'],['fBy','by'],['fStory','story']].forEach(([id,k])=>{$(id).value=h[k]||''});
+}
+[['fPlace','place'],['fTime','time'],['fBy','by'],['fStory','story']].forEach(([id,k])=>$(id).addEventListener('input',e=>{if(cur)cur[k]=e.target.value}));
+function stopMedia(){try{vid.pause()}catch(e){}if(bufSrc){try{bufSrc.onended=null;bufSrc.stop()}catch(e){}bufSrc=null}}
+function backToStreet(){
+  clearTimers();stopMedia();phase='off';info.classList.add('off');media.style.visibility='hidden';
+  hide(scene);buildStreet();
+  lane.style.transformOrigin=zoomOrigin||'50% 50%';lane.classList.add('zoom');void lane.offsetWidth;
+  requestAnimationFrame(()=>lane.classList.remove('zoom'));
+}
+function goNext(){
+  if(!cur)return;const i=houses.indexOf(cur),h=houses[(i+1)%houses.length];
+  info.classList.add('off');setupScene(h);
+}
+function replay(){
+  if(!cur)return;const h=cur;info.classList.add('off');setupScene(h);later(ring,350);
+}
+bell.addEventListener('click',ring);
+$('backBtn').addEventListener('click',backToStreet);$('back2Btn').addEventListener('click',backToStreet);
+$('nextBtn').addEventListener('click',goNext);$('replayBtn').addEventListener('click',replay);
+addEventListener('resize',()=>{if(scene.hidden)return;if(phase==='watch'){const f=fullRect();media.classList.add('noanim');Object.assign(media.style,px(f.media));Object.assign(info.style,px(f.info));sizeDemo(f.media)}else placeMediaAtDoor()});
+document.addEventListener('keydown',e=>{
+  if(scene.hidden)return;const tag=(e.target.tagName||'').toLowerCase();if(['input','textarea','select'].includes(tag))return;
+  if(e.key==='Escape'){backToStreet();return}
+  if((e.code==='Space'||e.key==='Enter')&&tag!=='button'&&phase==='ready'){e.preventDefault();ring()}
+});
+
+/* ---------------- Level & demo picture ---------------- */
+let td=null,fd=null;
+function sizeDemo(r){const d=Math.min(2,window.devicePixelRatio||1);demoCv.width=Math.round(r.width*d);demoCv.height=Math.round(r.height*d)}
+function loop(t){
+  if(analyser&&(phase==='listen'||phase==='open'||phase==='watch')){
+    if(!td){td=new Uint8Array(analyser.fftSize);fd=new Uint8Array(analyser.frequencyBinCount)}
+    analyser.getByteTimeDomainData(td);let s=0;for(let i=0;i<td.length;i++){const v=(td[i]-128)/128;s+=v*v}
+    const lvl=Math.sqrt(s/td.length);door.style.setProperty('--lvl',phase==='listen'?clamp(lvl*4).toFixed(3):'0');
+    if(cur&&!cur.url&&!demoCv.hidden)drawDemo(t,lvl);
+  }
+  requestAnimationFrame(loop);
+}
+function drawDemo(t,lvl){
+  const W=demoCv.width,H=demoCv.height;if(!W||!H)return;const g=G(cur.group),k=Math.min(W/540,H/960);
+  analyser.getByteFrequencyData(fd);
+  const bg=dctx.createLinearGradient(0,0,0,H);bg.addColorStop(0,g.bg);bg.addColorStop(1,'#050608');dctx.fillStyle=bg;dctx.fillRect(0,0,W,H);
+  const n=72,bw=W/n;for(let i=0;i<n;i++){const v=fd[Math.floor(i*1.6)]/255,h=v*H*.5;dctx.fillStyle=`rgba(255,198,107,${.22+.6*v})`;dctx.fillRect(i*bw+bw*.15,H-h,bw*.7,h)}
+  const R=(60+lvl*600)*k;dctx.strokeStyle=`rgba(237,233,225,${clamp(.2+lvl*2)})`;dctx.lineWidth=2*k;
+  for(let j=0;j<3;j++){dctx.beginPath();dctx.arc(W/2,H*.42,R*(1+j*.45)+(REDUCED?0:Math.sin(t/400+j)*4*k),0,Math.PI*2);dctx.stroke()}
+  dctx.fillStyle='#EDE9E1';dctx.textAlign='center';dctx.font=`900 ${Math.round(56*k)}px "Noto Serif TC",serif`;dctx.fillText(cur.name,W/2,H*.44+18*k);
+  dctx.fillStyle='rgba(237,233,225,.7)';dctx.font=`500 ${Math.round(18*k)}px "Noto Sans TC",sans-serif`;dctx.fillText('示意畫面',W/2,H*.44+62*k);dctx.fillText('加入影片後會播放你們拍的直式影像',W/2,H*.44+92*k);
+}
+requestAnimationFrame(loop);
+
+/* ---------------- Files ---------------- */
+const isVideo=f=>(f.type||'').startsWith('video/')||/\.(mov|mp4|m4v|webm)$/i.test(f.name);
+function attach(h,f){if(h.url&&h.url.startsWith('blob:'))URL.revokeObjectURL(h.url);h.url=URL.createObjectURL(f);h.data=null}
+function addFiles(list){
+  const files=[...list].filter(isVideo);
+  if(!files.length){$('msg').textContent='沒有找到影片檔，請選擇 .mp4、.mov 等影片。';return}
+  let matched=0,added=0;const used=new Set();
+  files.forEach(f=>{
+    const base=f.name.replace(/\.[^.]+$/,''),nb=norm(base);
+    let h=houses.find(x=>!used.has(x)&&norm(x.name)===nb)||houses.find(x=>!used.has(x)&&!x.url&&nb.length>1&&(norm(x.name).includes(nb)||nb.includes(norm(x.name))));
+    if(h){attach(h,f);used.add(h);matched++}
+    else{h={id:++uid,no:nextNo++,name:base,group:classify(base),place:'',time:'',by:'',story:'',url:null,demoIdx:-1};attach(h,f);houses.push(h);used.add(h);added++}
+  });
+  $('msg').textContent=`加入 ${files.length} 支影片：${matched} 支住進原本的住戶${added?`，新蓋了 ${added} 戶（可在住戶名單改名稱和類別）`:''}。`;
+  buildStreet();
+}
+$('files').addEventListener('change',e=>{addFiles(e.target.files);e.target.value=''});
+$('oneFile').addEventListener('change',e=>{const f=e.target.files[0];e.target.value='';if(!f||!cur)return;if(!isVideo(f)){state('這不是影片檔');return}attach(cur,f);setupScene(cur)});
+['dragenter','dragover'].forEach(ev=>document.addEventListener(ev,e=>e.preventDefault()));
+document.addEventListener('drop',e=>{e.preventDefault();if(!$('street').hidden&&e.dataTransfer&&e.dataTransfer.files.length)addFiles(e.dataTransfer.files)});
+
+/* ---------------- Drawer ---------------- */
+function buildRoster(){
+  const box=$('roster');box.innerHTML='';
+  houses.forEach(h=>{
+    const row=document.createElement('div');row.className='row';
+    const n=document.createElement('span');n.className='n';n.textContent=`${h.no}號`;
+    const inp=document.createElement('input');inp.id=`rn-${h.id}`;inp.value=h.name;inp.setAttribute('aria-label',`${h.no}號名稱`);inp.addEventListener('change',()=>{h.name=inp.value||'未命名';buildStreet()});
+    const sel=document.createElement('select');sel.id=`rg-${h.id}`;sel.setAttribute('aria-label',`${h.no}號類別`);
+    GROUPS.forEach(g=>{const o=document.createElement('option');o.value=g.id;o.textContent=g.id;if(g.id===h.group)o.selected=true;sel.appendChild(o)});
+    sel.addEventListener('change',()=>{h.group=sel.value;buildStreet()});
+    const st=document.createElement('span');st.className='st'+(h.url?' has':'');st.textContent=h.url?'有影片':h.demoIdx>=0?'示意':'待加入';
+    row.append(n,inp,sel,st);box.appendChild(row);
+  });
+}
+$('drawerBtn').addEventListener('click',()=>{$('drawer').hidden=false;$('drawerClose').focus()});
+$('drawerClose').addEventListener('click',()=>{$('drawer').hidden=true});
+$('delay').addEventListener('input',e=>{$('delayOut').textContent=`${e.target.value} 秒`});
+
+buildStreet();
+/* 放在 videos 資料夾、檔名跟住戶名稱相同的 .mp4，會在 GitHub Pages 或 Live Server 上自動住進那一戶 */
+(async function loadRepoVideos(){
+  const host=location.hostname;
+  if(!(host.endsWith('github.io')||host==='localhost'||host==='127.0.0.1'))return;
+  let n=0;
+  await Promise.all(houses.map(async h=>{
+    const path='videos/'+encodeURIComponent(h.name)+'.mp4';
+    try{const r=await fetch(path,{method:'HEAD'});if(r.ok&&!h.url){h.url=path;n++}}catch(e){}
+  }));
+  if(n){$('msg').textContent=`從 videos 資料夾載入 ${n} 支影片。`;buildStreet()}
+})();
+})();
+</script>
+
+</body>
+</html>
